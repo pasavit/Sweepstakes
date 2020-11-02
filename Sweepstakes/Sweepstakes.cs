@@ -9,11 +9,14 @@ namespace Sweepstakes
     class Sweepstakes
     {
         private Dictionary<int, Contestant> contestants;
+        private Random rng = new Random();
         private string name;
         public string Name { get; set; }
 
+
         public Sweepstakes(string name)
         {
+            this.name = name;
             contestants = new Dictionary<int, Contestant>();
         }
 
@@ -22,25 +25,18 @@ namespace Sweepstakes
             contestants.Add(contestants.Count + 1, contestant);
         }
 
-        //public Contestant PickWinner()
-        //{
-        //    foreach(Contestant in contestants)
-        //    return winner;
-        //}
+        public Contestant PickWinner()
+        {
+            int winner = rng.Next(1, contestants.Count());
+            return contestants[winner];
+        }
 
         public void PrintContestantInfo(Contestant contestant)
         {
             UserInterface.DisplayInput(contestant.firstName);
             UserInterface.DisplayInput(contestant.lastName);
             UserInterface.DisplayInput(contestant.emailAddress);
-
-        }
-
-        public Contestant NewEntry()
-        {
-            Contestant newEntry = new Contestant();
-
-            return newEntry;
+            UserInterface.DisplayInput(contestant.registrationNumber);
         }
 
     }

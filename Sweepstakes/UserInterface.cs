@@ -19,5 +19,9 @@ namespace Sweepstakes
         {
             Console.WriteLine(input);
         }
+        public static void DisplayInput(int input)
+        {
+            Console.WriteLine(input);
+        }
     }
 }
