@@ -8,5 +8,6 @@ namespace Sweepstakes
 {
     class SweepstakesQueueManager
     {
+
     }
 }
