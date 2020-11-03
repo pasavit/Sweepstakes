@@ -14,6 +14,7 @@ namespace Sweepstakes
         {
             this.manager = manager;
             CreateSweepstakes();
+            WinningContestant();
         }
 
         public void CreateSweepstakes()
@@ -24,10 +25,13 @@ namespace Sweepstakes
             for (int i = 0; i < contestants; i++)
             {
                 Contestant newEntry = new Contestant();
-                sweepstakes.RegisterContestant(newEntry);
+                manager.GetSweepstakes().RegisterContestant(newEntry);
             }
         }
 
-
+        public void WinningContestant()
+        {
+            manager.GetSweepstakes().PrintContestantInfo(manager.GetSweepstakes().PickWinner());
+        }
     }
 }

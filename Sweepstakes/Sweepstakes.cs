@@ -23,6 +23,7 @@ namespace Sweepstakes
         public void RegisterContestant(Contestant contestant)
         {
             contestants.Add(contestants.Count + 1, contestant);
+            contestant.registrationNumber = contestants.Count + 1;
         }
 
         public Contestant PickWinner()
