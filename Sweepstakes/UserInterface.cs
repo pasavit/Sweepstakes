@@ -14,6 +14,12 @@ namespace Sweepstakes
             string userInput = Console.ReadLine();
             return userInput;
         }
+        public static int GetIntUserInputFor(string prompt)
+        {
+            Console.WriteLine(prompt);
+            int userInput = int.Parse(Console.ReadLine());
+            return userInput;
+        }
 
         public static void DisplayInput(string input)
         {

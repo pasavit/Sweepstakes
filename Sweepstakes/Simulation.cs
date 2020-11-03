@@ -1,29 +1,33 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Sweepstakes
+﻿namespace Sweepstakes
 {
-    class Simulation
+    internal class Simulation
     {
         public void CreateMarketingFirmWithManager()
         {
-            string userInput = UserInterface.GetUserInputFor("Please choose:\n\nSTACK\n\nor\n\nQUEUE");
-            switch (userInput.ToUpper())
+            SweepstakesStackManager stack = new SweepstakesStackManager();
+            SweepstakesQueueManager queue = new SweepstakesQueueManager();
+
+            switch (TypeOfSweeps())
             {
                 case "STACK":
-                    new MarketingFirm(_manager);
+                    new MarketingFirm(stack);
                     break;
+
                 case "QUEUE":
-                    new MarketingFirm();
+                    new MarketingFirm(queue);
                     break;
+
                 default:
                     UserInterface.DisplayInput("Please enter valid selection");
                     CreateMarketingFirmWithManager();
                     break;
             }
         }
+        public string TypeOfSweeps()
+        {
+            string managerType = UserInterface.GetUserInputFor("Please choose:\n\nSTACK\n\nor\n\nQUEUE");
+            return managerType.ToUpper();
+        }
+
     }
 }
