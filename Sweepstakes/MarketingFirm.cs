@@ -8,7 +8,7 @@ namespace Sweepstakes
 {
     class MarketingFirm
     {
-
+        private ISweekstakesManager _manager;
         public MarketingFirm(ISweepstakesManager manager)
         {
 
