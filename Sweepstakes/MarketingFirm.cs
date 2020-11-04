@@ -1,14 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Sweepstakes
 {
-    class MarketingFirm
+    internal class MarketingFirm
     {
         private ISweepstakesManager manager;
+        Sweepstakes sweepstakesName;
 
         public MarketingFirm(ISweepstakesManager manager)
         {
@@ -19,19 +16,30 @@ namespace Sweepstakes
 
         public void CreateSweepstakes()
         {
-            Sweepstakes sweepstakes = new Sweepstakes(UserInterface.GetUserInputFor("Name of Sweepstakes"));
-            manager.InsertSweepstakes(sweepstakes);
-            int contestants = UserInterface.GetIntUserInputFor("Enter amount of entries");
+            sweepstakesName = new Sweepstakes(UserInterface.GetUserInputFor("Enter name of your Sweepstakes"));
+            manager.InsertSweepstakes(sweepstakesName);
+            int contestants = UserInterface.GetIntUserInputFor("How many entries would you like to create?");
             for (int i = 0; i < contestants; i++)
             {
-                Contestant newEntry = new Contestant();
-                manager.GetSweepstakes().RegisterContestant(newEntry);
+                if (i == 0)
+                {
+                    Contestant newEntry = new Contestant();
+                    sweepstakesName.RegisterContestant(newEntry);
+                }
+                else
+                {
+                    UserInterface.DisplayInput("/nPlease enter next Contestants Info");
+                    Contestant newEntry = new Contestant();
+                    sweepstakesName.RegisterContestant(newEntry);
+                }
             }
         }
-
         public void WinningContestant()
         {
-            manager.GetSweepstakes().PrintContestantInfo(manager.GetSweepstakes().PickWinner());
+            UserInterface.Clear();
+            UserInterface.DisplayInput("THE WINNER IS:");
+            sweepstakesName.PrintContestantInfo(manager.GetSweepstakes().PickWinner());
         }
+
     }
 }

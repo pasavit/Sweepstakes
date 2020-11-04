@@ -4,34 +4,25 @@
     {
         public void CreateMarketingFirmWithManager()
         {
-            MarketingFirm client = new MarketingFirm(Factory.ManagerSelect(TypeOfSweeps()));
+            UserInterface.Greeting();
+            new MarketingFirm(Factory.ManagerSelect(TypeOfSweeps()));
         }
         public string TypeOfSweeps()
         {
-            string managerType = UserInterface.GetUserInputFor("Please choose:\n\nSTACK\n\nor\n\nQUEUE");
-            return managerType.ToUpper();
+            string managerType = UserInterface.GetUserInputFor("Please input:\n\nSTACK\nor\nQUEUE\n\n").ToUpper();
+            if (managerType == "STACK")
+            {
+                return managerType;
+            }
+            else if (managerType == "QUEUE")
+            {
+                return managerType;
+            }
+            else
+            {
+                UserInterface.DisplayInput("Invalid input, please try again");
+                return TypeOfSweeps();
+            }
         }
-        //public void CreateMarketingFirmWithManager()
-        //{
-        //    SweepstakesStackManager stack = new SweepstakesStackManager();
-        //    SweepstakesQueueManager queue = new SweepstakesQueueManager();
-
-        //    switch (TypeOfSweeps())
-        //    {
-        //        case "STACK":
-        //            new MarketingFirm(stack);
-        //            break;
-
-        //        case "QUEUE":
-        //            new MarketingFirm(queue);
-        //            break;
-
-        //        default:
-        //            UserInterface.DisplayInput("Please enter valid selection");
-        //            CreateMarketingFirmWithManager();
-        //            break;
-        //    }
-        //}
-
     }
 }

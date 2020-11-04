@@ -20,11 +20,6 @@ namespace Sweepstakes
                 case "QUEUE":
                     manager = new SweepstakesQueueManager();
                     break;
-
-                default:
-                    UserInterface.DisplayInput("Please enter valid selection");
-                    ManagerSelect(userInput);
-                    break;
             }
             return manager;
         }

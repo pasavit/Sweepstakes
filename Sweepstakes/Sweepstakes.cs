@@ -23,7 +23,7 @@ namespace Sweepstakes
         public void RegisterContestant(Contestant contestant)
         {
             contestants.Add(contestants.Count + 1, contestant);
-            contestant.registrationNumber = contestants.Count + 1;
+            contestant.registrationNumber = contestants.Count;
         }
 
         public Contestant PickWinner()
@@ -34,10 +34,10 @@ namespace Sweepstakes
 
         public void PrintContestantInfo(Contestant contestant)
         {
-            UserInterface.DisplayInput(contestant.firstName);
-            UserInterface.DisplayInput(contestant.lastName);
-            UserInterface.DisplayInput(contestant.emailAddress);
-            UserInterface.DisplayInput(contestant.registrationNumber);
+            UserInterface.DisplayInput($"First Name: {contestant.firstName}");
+            UserInterface.DisplayInput($"Last Name: {contestant.lastName}");
+            UserInterface.DisplayInput($"Email Address: {contestant.emailAddress}");
+            UserInterface.DisplayInput($"Registration Number: {contestant.registrationNumber}");
         }
 
     }

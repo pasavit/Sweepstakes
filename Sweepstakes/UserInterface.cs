@@ -30,5 +30,16 @@ namespace Sweepstakes
             Console.WriteLine(input);
         }
 
+        public static void Clear()
+        {
+            Console.Clear();
+        }
+
+        public static void Greeting()
+        {
+            Console.WriteLine("Hello Marketing Client!\n" +
+                "Thank you for choosing our SweepstaksBuilder\n" +
+                "Would you like to create a Stack or Queue Sweepstakes?\n");
+        }
     }
 }

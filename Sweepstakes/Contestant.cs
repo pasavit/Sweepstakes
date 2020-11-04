@@ -15,9 +15,9 @@ namespace Sweepstakes
 
         public Contestant()
         {
-            firstName = UserInterface.GetUserInputFor("Enter first name");
-            lastName = UserInterface.GetUserInputFor("Enter last name");
-            emailAddress = UserInterface.GetUserInputFor("Enter email address");
+            firstName = UserInterface.GetUserInputFor("\nEnter contestants first name");
+            lastName = UserInterface.GetUserInputFor("\nEnter contestants last name");
+            emailAddress = UserInterface.GetUserInputFor("\nEnter contestants email address");
         }
     }
 
