@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace Sweepstakes
 {
     static class UserInterface
@@ -41,5 +42,6 @@ namespace Sweepstakes
                 "Thank you for choosing our SweepstaksBuilder\n" +
                 "Would you like to create a Stack or Queue Sweepstakes?\n");
         }
+
     }
 }

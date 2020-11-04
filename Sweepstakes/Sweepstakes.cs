@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Sweepstakes
 {
-    class Sweepstakes
+    class Sweepstakes 
     {
         private Dictionary<int, Contestant> contestants;
+        private List<INotify> subscribers = new List<INotify>();
         private Random rng = new Random();
         private string name;
         public string Name { get; set; }
@@ -24,12 +25,15 @@ namespace Sweepstakes
         {
             contestants.Add(contestants.Count + 1, contestant);
             contestant.registrationNumber = contestants.Count;
+            subscribers.Add(contestant);
         }
 
         public Contestant PickWinner()
         {
             int winner = rng.Next(1, contestants.Count());
-            return contestants[winner];
+            var winningContestant = contestants[winner];
+            NotifySubscribers();
+            return winningContestant;
         }
 
         public void PrintContestantInfo(Contestant contestant)
@@ -40,5 +44,12 @@ namespace Sweepstakes
             UserInterface.DisplayInput($"Registration Number: {contestant.registrationNumber}");
         }
 
+        public void NotifySubscribers()
+        {
+            foreach (INotify contestant in subscribers)
+            {
+                contestant.Notify(contestant);
+            }
+        }
     }
 }

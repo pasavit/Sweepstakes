@@ -45,6 +45,7 @@
   <ItemGroup>
     <Compile Include="Contestant.cs" />
     <Compile Include="Factory.cs" />
+    <Compile Include="INotify.cs" />
     <Compile Include="ISweekstakesManager.cs" />
     <Compile Include="MarketingFirm.cs" />
     <Compile Include="Program.cs" />
