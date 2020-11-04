@@ -1,3 +1,6 @@
 MarketingFirmClass
 MarketingFirm Constructor(parameter) - Constructor Injection
-The parameter here is being injected utilizing ISweepstakesManager. We are passing in an ISweepstakesManager manager and that manager is going to be set equal to the ISweepstakesManager manager member variable. This allows us to use different types of data, in this case stack or queue abstract data types. This MarketingFirm is not dependent on Stack or Queue data type, can handle both. When we instantiate MarketingFirm, we can pass in either data type as the parameter becuase both implement the ISweepstakesManager interface.
+The parameter here is being injected utilizing ISweepstakesManager.
+We are passing in an ISweepstakesManager manager and that manager is going to be set equal to the ISweepstakesManager manager member variable.
+This allows us to use different types of data, in this case stack or queue abstract data types. This MarketingFirm is not dependent on Stack or Queue data type, can handle both.
+When we instantiate MarketingFirm, we can pass in either data type as the parameter becuase both implement the ISweepstakesManager interface.
