@@ -14,7 +14,7 @@ namespace Sweepstakes
             WinningContestant();
         }
 
-        public void CreateSweepstakes()
+        private void CreateSweepstakes()
         {
             sweepstakesName = new Sweepstakes(UserInterface.GetUserInputFor("Enter name of your Sweepstakes"));
             manager.InsertSweepstakes(sweepstakesName);
@@ -34,7 +34,7 @@ namespace Sweepstakes
                 }
             }
         }
-        public void WinningContestant()
+        private void WinningContestant()
         {
             UserInterface.Clear();
             UserInterface.DisplayInput("THE WINNER IS:");

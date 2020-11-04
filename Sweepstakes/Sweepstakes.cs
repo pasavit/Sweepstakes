@@ -44,7 +44,7 @@ namespace Sweepstakes
             UserInterface.DisplayInput($"Registration Number: {contestant.registrationNumber}");
         }
 
-        public void NotifySubscribers()
+        private void NotifySubscribers()
         {
             foreach (INotify contestant in subscribers)
             {
